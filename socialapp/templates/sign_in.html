@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In - Social Book</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+   <form style="width: 50%; margin: 0 auto" action="{% url 'sign_in' %}" method="POST">
+     {% csrf_token %}
+     <h1>Sign In Page</h1>
+     {% if error %}
+     <div class="alert alert-danger" role="alert">
+        {{error_msg}}
+          Please try again!
+     </div>
+     {% endif%}
+ 
+
+<div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required/>
+</div>
+
+<div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required/>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+
+<div class="lg:mb-5 py-3 uk-link-reset">
+  <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
+      <div class="flex space-x-2 text-gray-700 uppercase">
+
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+</form>
+
+{% endblock %}
+
+</body>
+</html>
